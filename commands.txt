@@ -2,6 +2,15 @@ rosrun image_view image_view image:=/camera/depth/image_rect_raw
 
 rostopic list
 
-roslaunch sth sth its in the realsense repo
+roslaunch realsense2_camera rs_camera.launch align_depth:=true enable_sync:=true
+
+
+
+/camera/aligned_depth_to_color/image_raw
+/camera/color/image_raw
+
+
+
+
 
 
