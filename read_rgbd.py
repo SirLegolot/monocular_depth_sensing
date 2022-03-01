@@ -40,7 +40,7 @@ def parseBag(args):
 
 	i=0
 	for topic, msg, t in bag.read_messages():
-		if i > 2:
+		if i > 4:
 			break
 
 		print("Msg %d:" % i)
@@ -50,10 +50,11 @@ def parseBag(args):
 		cv_image = bridge.imgmsg_to_cv2(msg, desired_encoding='passthrough')
 		print(cv_image.dtype)
 		print(cv_image.shape)
-		if topic == "/camera/depth/image_rect_raw":
-			plt.imshow(cv_image, cmap=plt.cm.gray)
-		else:
+		# plt.hist(cv_image.ravel(), bins=100)
+		if topic == "/camera/color/image_raw":
 			plt.imshow(cv_image)
+		else:
+			plt.imshow(cv_image, cmap=plt.cm.gray)
 		plt.show()
 
 		i+=1
