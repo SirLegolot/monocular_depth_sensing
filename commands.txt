@@ -1,16 +1,21 @@
-rosrun image_view image_view image:=/camera/depth/image_rect_raw
 
+# To list the topics that have data being streamed
 rostopic list
 
+# To run the ros node and stream data to ros topics:
 roslaunch realsense2_camera rs_camera.launch align_depth:=true enable_sync:=true
 
-
-
+# These are the topics that you want to read from:
 /camera/aligned_depth_to_color/image_raw
 /camera/color/image_raw
 
 
+# To view the image
+rosrun image_view image_view image:=/camera/depth/image_rect_raw
+rviz
 
 
+# To record the topics:
+rosbag record /camera/aligned_depth_to_color/image_raw /camera/color/image_raw
 
 
