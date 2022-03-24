@@ -5,12 +5,14 @@ from cv_bridge import CvBridge
 from sensor_msgs.msg import Image
 import matplotlib.pyplot as plt
 import numpy as np
+import time
 
 def process_image(msg):
     bridge = CvBridge()
     cv_image = bridge.imgmsg_to_cv2(msg, desired_encoding='passthrough')
     cv_image = cv2.cvtColor(cv_image, cv2.COLOR_BGR2RGB)
 
+    # time.sleep(0.1)
 
     # cv_image = (cv_image - np.min(cv_image)) / np.max(cv_image)
     # cv_image = (cv_image*255).astype(np.uint8)
